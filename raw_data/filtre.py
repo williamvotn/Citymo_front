@@ -5,6 +5,8 @@ df = pd.read_csv("raw_data/75.csv")
 
 # Supprimer toutes les lignes où la colonne 'type_local' contient 'Dépendance'
 df = df[df['type_local'] != 'Dépendance']
+
+# Supprimer toutes les lignes où la colonne 'type_local' contient 'Local industriel. commercial ou assimilé'
 df = df[df['type_local'] != 'Local industriel. commercial ou assimilé']
 
 # Supprimer toutes les lignes où la colonne 'nature_mutation' n'est pas égale à 'Vente'
