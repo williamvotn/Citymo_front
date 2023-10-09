@@ -15,6 +15,7 @@ df = df[df['nature_mutation'] == 'Vente']
 # Liste des colonnes à conserver
 colonnes_a_conserver = [
     'id_mutation',
+    'type_local',
     'valeur_fonciere',
     'adresse_numero',
     'adresse_nom_voie',
