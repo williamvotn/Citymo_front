@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
     </head>
+        
     <body>
 
         <div id="preloader">
@@ -128,30 +129,39 @@
                                 </div>
         
                                 <div class="col-md-3">
-                                    <label for="type-local">Type :</label>
-                                    <select id="type-local" class="selectpicker show-tick form-control">
-                                        <option>Appartement</option>
-                                        <option>Maison</option>
-                                    </select>
+                                    <label>Type :</label><br>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="type[]" value="Appartement"> Appartement
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="type[]" value="Maison"> Maison
+                                        </label>
+                                    </div>
                                 </div>
+                                
                                 
                                 <div class="col-md-3">
                                     <label for="min-rooms">Nombre de pièces :</label>
-                                    <select id="min-rooms" class="selectpicker show-tick form-control">
-                                        <option> Nombre de pièces : </option>
-                                        <option>0+</option>
-                                        <option>1+</option>
-                                        <option>2+</option>
-                                        <option>3+</option>
-                                        <option>4+</option>
-                                        <option>5+</option>
-                                        <option>6+</option>
-                                        <option>7+</option>
-                                        <option>8+</option>
-                                        <option>9+</option>
-                                        <option>10+</option>
-                                    </select>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" id="decrement" class="btn btn-default btn-number" data-type="minus" data-field="min-rooms">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" id="min-rooms" class="form-control input-number" value="1" min="0" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" id="increment" class="btn btn-default btn-number" data-type="plus" data-field="min-rooms">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
+                                
+                                
+                                
                             </div>
         
                             <div class="center">
@@ -507,8 +517,39 @@
             </div>
         </div>
 
-
-        <!-- Footer area-->
+        <script>
+            // Récupération de la référence vers l'élément compteur
+            var compteurElement = document.getElementById("min-rooms");
+            
+            // Récupération de la référence vers les boutons
+            var decrementButton = document.getElementById("decrement");
+            var incrementButton = document.getElementById("increment");
+            
+            // Fonction pour décrémenter le compteur
+            function decrement() {
+                var currentValue = parseInt(compteurElement.value);
+                var minValue = parseInt(compteurElement.min);
+            
+                if (!isNaN(currentValue) && currentValue > minValue) {
+                    compteurElement.value = currentValue - 1;
+                }
+            }
+            
+            // Fonction pour incrémenter le compteur
+            function increment() {
+                var currentValue = parseInt(compteurElement.value);
+                var maxValue = parseInt(compteurElement.max);
+            
+                if (!isNaN(currentValue) && currentValue < maxValue) {
+                    compteurElement.value = currentValue + 1;
+                }
+            }
+            
+            // Associer les fonctions aux événements click des boutons
+            decrementButton.addEventListener("click", decrement);
+            incrementButton.addEventListener("click", increment);
+            </script>
+            
 
 
 
