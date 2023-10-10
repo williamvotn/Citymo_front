@@ -90,87 +90,95 @@
             </div>
         </div>
 
-        <div class="home-lager-shearch" style="padding-top: 25px; margin-top: -125px; padding-bottom: 60px; background-color: rgb(252, 252, 252);">
-            <div class="container">
-                <div class="col-md-12 large-search"> 
-                    <div class="search-form wow pulse">
-                        <form action="" class=" form-inline">
-                            <div class="col-md-12 clear">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" placeholder="Code postal">
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de recherche</title>
+</head>
+<body>
+    <div class="home-lager-shearch" style="padding-top: 25px; margin-top: -125px; padding-bottom: 60px; background-color: rgb(252, 252, 252);">
+        <div class="container">
+            <div class="col-md-12 large-search"> 
+                <div class="search-form wow pulse">
+                    <form action="traitement.php" method="post" class="form-inline">
+                        <div class="col-md-12 clear">
+                            <div class="col-md-4">
+                                <label for="code_postal">Code postal :</label>
+                                <input type="text" id="code_postal" name="code_postal" class="form-control" placeholder="Code postal">
+                            </div>
+                            <div class="col-md-4">                                   
+                                <label for="nom_voie">Nom de la voie :</label>
+                                <input type="text" id="nom_voie" name="nom_voie" class="form-control" placeholder="Nom de la voie">
+                            </div>
+                            <div class="col-md-4">                                     
+                                <label for="numero_voie">Numéro de la voie :</label>
+                                <input type="text" id="numero_voie" name="numero_voie" class="form-control" placeholder="Numéro de la voie">
+                            </div>
+                        </div>
+                        <div class="col-md-12 clear">
+                            <div class="col-md-3">
+                                <label for="price-range">Valeur foncière ($):</label>
+                                <input type="text" id="price-range" class="span2" value="" data-slider-min="0" 
+                                       data-slider-max="1000000" data-slider-step="10000" 
+                                       data-slider-value="[0,1000000]" name="valeur_fonciere">
+                                <br />
+                                <b class="pull-left color">0$</b> 
+                                <b class="pull-right color">1,000,000$</b>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="property-geo">Surface réelle (m²) :</label>
+                                <input type="text" id="property-geo" class="span2" value="" data-slider-min="0" 
+                                       data-slider-max="1000" data-slider-step="10" 
+                                       data-slider-value="[0,1000]" name="surface_reelle">
+                                <br />
+                                <b class="pull-left color">0m</b> 
+                                <b class="pull-right color">1000m</b>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Type :</label><br>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type_appartement" value="Appartement"> Appartement
+                                    </label>
                                 </div>
-                                <div class="col-md-4">                                   
-                                    <input type="text" class="form-control" placeholder="Nom de la voie">
-                                </div>
-                                <div class="col-md-4">                                     
-                                    <input type="text" class="form-control" placeholder="Numéro de la voie">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="type_maison" value="Maison"> Maison
+                                    </label>
                                 </div>
                             </div>
-                            <div class="col-md-12 clear">
-                                <div class="col-md-3">
-                                    <label for="price-range">Valeur foncière ($):</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" 
-                                           data-slider-max="1000000" data-slider-step="10000" 
-                                           data-slider-value="[0,1000000]" id="price-range" >
-                                    <br />
-                                    <b class="pull-left color">0$</b> 
-                                    <b class="pull-right color">1,000,000$</b>
+
+                            <div class="col-md-3">
+                                <label for="min-rooms">Nombre de pièces :</label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="decrement" class="btn btn-default btn-number" data-type="minus" data-field="min-rooms">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="min-rooms" class="form-control input-number" value="1" min="0" max="10" name="nombre_pieces">
+                                    <span class="input-group-btn">
+                                        <button type="button" id="increment" class="btn btn-default btn-number" data-type="plus" data-field="min-rooms">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
                                 </div>
-        
-                                <div class="col-md-3">
-                                    <label for="property-geo">Surface réelle (m²) :</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" 
-                                           data-slider-max="1000" data-slider-step="10" 
-                                           data-slider-value="[0,1000]" id="property-geo" >
-                                    <br />
-                                    <b class="pull-left color">0m</b> 
-                                    <b class="pull-right color">1000m</b>
-                                </div>
-        
-                                <div class="col-md-3">
-                                    <label>Type :</label><br>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="type[]" value="Appartement"> Appartement
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="type[]" value="Maison"> Maison
-                                        </label>
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="col-md-3">
-                                    <label for="min-rooms">Nombre de pièces :</label>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" id="decrement" class="btn btn-default btn-number" data-type="minus" data-field="min-rooms">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" id="min-rooms" class="form-control input-number" value="1" min="0" max="10">
-                                        <span class="input-group-btn">
-                                            <button type="button" id="increment" class="btn btn-default btn-number" data-type="plus" data-field="min-rooms">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                
-                                
                             </div>
-        
-                            <div class="center">
-                                <input type="submit" value="Rechercher" class="btn btn-default btn-lg-sheach">
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+
+                        <div class="center">
+                            <input type="submit" value="" class="btn btn-default btn-lg-sheach">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+</body>
+</html>
+
         
         
         
