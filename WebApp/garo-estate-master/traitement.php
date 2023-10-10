@@ -6,8 +6,9 @@ $csvFile = './Data/paris.csv';
 $codePostal = $_POST['code_postal'];
 $nomVoie = $_POST['nom_voie'];
 $numeroVoie = $_POST['numero_voie'];
-$valeurFonciere = $_POST['valeur_fonciere'];
-$surfaceReelle = $_POST['surface_reelle'];
+$valeurFonciere = isset($_POST['valeur_fonciere']) ? explode(',', $_POST['valeur_fonciere']) : null;
+$surfaceReelle = isset($_POST['surface_reelle']) ? explode(',', $_POST['surface_reelle']) : null;
+
 $types = [];
 if (isset($_POST['type_appartement'])) {
     $types[] = 'Appartement';
@@ -46,10 +47,10 @@ foreach ($rows as $row) {
         (!$codePostal || $row[$indexCodePostal] == $codePostal) &&
         (!$nomVoie || $row[$indexNomVoie] == $nomVoie) &&
         (!$numeroVoie || $row[$indexNumeroVoie] == $numeroVoie) &&
-        (!$valeurFonciere || ($row[$indexValeurFonciere] >= $valeurFonciere[0] && $row[$indexValeurFonciere] <= $valeurFonciere[1])) &&
-        (!$surfaceReelle || ($row[$indexSurfaceReelle] >= $surfaceReelle[0] && $row[$indexSurfaceReelle] <= $surfaceReelle[1])) &&
+        (!$valeurFonciere || (count($valeurFonciere) >= 2 && $row[$indexValeurFonciere] >= $valeurFonciere[0] && $row[$indexValeurFonciere] <= $valeurFonciere[1])) &&
+        (!$surfaceReelle || (count($surfaceReelle) >= 2 && $row[$indexSurfaceReelle] >= $surfaceReelle[0] && $row[$indexSurfaceReelle] <= $surfaceReelle[1])) &&
         (empty($types) || in_array($row[$indexTypeLocal], $types)) &&
-        (!$nombrePieces || $row[$indexNombrePieces] == $nombrePieces)
+        (!$nombrePieces || $row[$indexNombrePieces] >= $nombrePieces) // Modification ici
     ) {
         echo '<tr>';
         echo '<td>' . $numeroResultat . '</td>'; // Affiche le numéro de résultat
