@@ -6,8 +6,8 @@ $csvFile = './Data/paris.csv';
 $codePostal = $_POST['code_postal'];
 $nomVoie = $_POST['nom_voie'];
 $numeroVoie = $_POST['numero_voie'];
-$valeurFonciere = isset($_POST['valeur_fonciere']) ? explode(',', $_POST['valeur_fonciere']) : null;
-$surfaceReelle = isset($_POST['surface_reelle']) ? explode(',', $_POST['surface_reelle']) : null;
+$valeurFonciere = isset($_POST['valeur_fonciere']) ? explode(',', $_POST['valeur_fonciere']) : [0, 1000000];
+$surfaceReelle = isset($_POST['surface_reelle']) ? explode(',', $_POST['surface_reelle']) : [0, 1000];
 
 $types = [];
 if (isset($_POST['type_appartement'])) {

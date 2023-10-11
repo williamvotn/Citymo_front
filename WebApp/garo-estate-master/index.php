@@ -116,25 +116,26 @@
                             </div>
                         </div>
                         <div class="col-md-12 clear">
-                            <div class="col-md-3">
-                                <label for="price-range">Valeur foncière ($):</label>
-                                <input type="text" id="price-range" class="span2" value="" data-slider-min="0" 
-                                       data-slider-max="1000000" data-slider-step="10000" 
-                                       data-slider-value="[0,1000000]" name="valeur_fonciere">
-                                <br />
-                                <b class="pull-left color">0$</b> 
-                                <b class="pull-right color">1,000,000$</b>
-                            </div>
+                        <div class="col-md-3">
+    <label for="price-range">Valeur foncière ($):</label>
+    <input type="text" id="price-range" class="span2" value="[0,20000000]" data-slider-min="0" 
+           data-slider-max="20000000" data-slider-step="10000" 
+           data-slider-value="[0,20000000]" name="valeur_fonciere">
+    <br />
+    <b class="pull-left color">0$</b> 
+    <b class="pull-right color">20,000,000$</b>
+</div>
 
-                            <div class="col-md-3">
-                                <label for="property-geo">Surface réelle (m²) :</label>
-                                <input type="text" id="property-geo" class="span2" value="" data-slider-min="0" 
-                                       data-slider-max="1000" data-slider-step="10" 
-                                       data-slider-value="[0,1000]" name="surface_reelle">
-                                <br />
-                                <b class="pull-left color">0m</b> 
-                                <b class="pull-right color">1000m</b>
-                            </div>
+<div class="col-md-3">
+    <label for="property-geo">Surface réelle (m²) :</label>
+    <input type="text" id="property-geo" class="span2" value="[0,600]" data-slider-min="0" 
+           data-slider-max="600" data-slider-step="10" 
+           data-slider-value="[0,600]" name="surface_reelle">
+    <br />
+    <b class="pull-left color">0m</b> 
+    <b class="pull-right color">600m</b>
+</div>
+
 
                             <div class="col-md-3">
                                 <label>Type :</label><br>
