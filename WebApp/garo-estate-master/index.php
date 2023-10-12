@@ -33,8 +33,7 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
-    </head>
-        
+    </head>  
     <body>
 
         <div id="preloader">
@@ -116,25 +115,25 @@
                             </div>
                         </div>
                         <div class="col-md-12 clear">
-                        <div class="col-md-3">
-    <label for="price-range">Valeur foncière ($):</label>
-    <input type="text" id="price-range" class="span2" value="[0,20000000]" data-slider-min="0" 
-           data-slider-max="20000000" data-slider-step="10000" 
-           data-slider-value="[0,20000000]" name="valeur_fonciere">
-    <br />
-    <b class="pull-left color">0$</b> 
-    <b class="pull-right color">20,000,000$</b>
-</div>
+                            <div class="col-md-3">
+                                <label for="price-range">Valeur foncière ($):</label>
+                                <input type="text" id="price-range" class="span2" value="[0,20000000]" data-slider-min="0" 
+                                    data-slider-max="20000000" data-slider-step="10000" 
+                                data-slider-value="[0,20000000]" name="valeur_fonciere">
+                                <br />
+                                <b class="pull-left color">0$</b> 
+                                <b class="pull-right color">20,000,000$</b>
+                            </div>
 
-<div class="col-md-3">
-    <label for="property-geo">Surface réelle (m²) :</label>
-    <input type="text" id="property-geo" class="span2" value="[0,600]" data-slider-min="0" 
-           data-slider-max="600" data-slider-step="10" 
-           data-slider-value="[0,600]" name="surface_reelle">
-    <br />
-    <b class="pull-left color">0m</b> 
-    <b class="pull-right color">600m</b>
-</div>
+                            <div class="col-md-3">
+                                <label for="property-geo">Surface réelle (m²) :</label>
+                                <input type="text" id="property-geo" class="span2" value="[0,600]" data-slider-min="0" 
+                                data-slider-max="600" data-slider-step="10" 
+                                data-slider-value="[0,600]" name="surface_reelle">
+                                <br />
+                                <b class="pull-left color">0m</b> 
+                                <b class="pull-right color">600m</b>
+                            </div>
 
 
                             <div class="col-md-3">
@@ -524,6 +523,30 @@
                 </div>
             </div>
         </div>
+        <script>
+    $(function () {
+        var slider = $("#price-range");
+        slider.slider({
+            range: true,
+            min: 0,
+            max: 20000000,
+            step: 10000,
+            values: [0, 20000000],
+            slide: function (event, ui) {
+                var lowerValue = ui.values[0];
+                var upperValue = ui.values[1];
+                if (upperValue <= 1000000) {
+                    $("#price-range .color").html('0$ - 1,000,000$');
+                } else {
+                    var scaledValue = (upperValue - 1000000) / 19000000 * 1900000 + 1000000;
+                    $("#price-range .color").html('1,000,000$ - 20,000,000$');
+                }
+            }
+        });
+
+        slider.slider("option", "slide")(null, { values: slider.slider("values") });
+    });
+</script>
 
         <script>
             // Récupération de la référence vers l'élément compteur
@@ -562,6 +585,9 @@
 
 
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <script src="assets/js/jquery-1.10.2.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
