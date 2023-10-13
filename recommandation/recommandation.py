@@ -9,8 +9,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-# Exemple d'utilisation :
-# python3 recommandation/recommandation.py 2022-1369861 --bonus 2022-1363613
+# Exempled d'utilisation :
+
+# Lancer une recommandation basé sur l'id mutation d'un appartement
+# python3 recommandation/recommandation.py 2022-1369861
+
+# La même chose, mais en excluant l'appartement qui a l'id mutation 2022-1369861
+# python3 recommandation/recommandation.py 2022-1363613 --without 2022-1369861
 
 # Enregistrer le moment où le programme commence
 start_time = time.time()
@@ -18,7 +23,7 @@ start_time = time.time()
 # Définition des arguments en ligne de commande
 parser = argparse.ArgumentParser(description="Script de recommandation d'appartements.")
 parser.add_argument('reference_id', type=str, help="ID de l'appartement de référence")
-parser.add_argument('--bonus', type=str, help="ID de l'appartement à exclure du calcul de la similarité")
+parser.add_argument('--without', type=str, help="ID de l'appartement à exclure du calcul de la similarité")
 args = parser.parse_args()
 
 # Lire le fichier CSV
@@ -27,9 +32,9 @@ df = pd.read_csv('dataset/paris.csv')
 # Trouver l'index de l'appartement de référence dans le DataFrame
 reference_index = df[df['id_mutation'] == args.reference_id].index[0]
 
-# Exclure l'appartement spécifié par le paramètre bonus (s'il est fourni)
-if args.bonus:
-    df = df[df['id_mutation'] != args.bonus]
+# Exclure l'appartement spécifié par le paramètre without (s'il est fourni)
+if args.without:
+    df = df[df['id_mutation'] != args.without]
 
 # Créer une nouvelle colonne 'coef_plan' en utilisant la formule fournie
 max_latitude = df['latitude'].max()
@@ -58,7 +63,6 @@ df['cosine_similarity'] = cosine_similarities
 df_sorted = df.sort_values(by='cosine_similarity', ascending=False)
 
 # Conserver uniquement les 15 premières lignes du DataFrame trié (à partir de la deuxième ligne)
-#df_sorted = df_sorted.iloc[1:].head(10000)
 df_sorted = df_sorted.iloc[1:].head(10)
 
 #
