@@ -30,6 +30,7 @@ $indexValeurFonciere = array_search('valeur_fonciere', $header);
 $indexSurfaceReelle = array_search('surface_reelle_bati', $header);
 $indexTypeLocal = array_search('type_local', $header);
 $indexNombrePieces = array_search('nombre_pieces_principales', $header);
+$indexIdMutation = array_search('id_mutation', $header);
 
 // Afficher les lignes filtrées directement sur la page
 echo '<table border="1">';
@@ -50,13 +51,15 @@ foreach ($rows as $row) {
         (!$valeurFonciere || (count($valeurFonciere) >= 2 && $row[$indexValeurFonciere] >= $valeurFonciere[0] && $row[$indexValeurFonciere] <= $valeurFonciere[1])) &&
         (!$surfaceReelle || (count($surfaceReelle) >= 2 && $row[$indexSurfaceReelle] >= $surfaceReelle[0] && $row[$indexSurfaceReelle] <= $surfaceReelle[1])) &&
         (empty($types) || in_array($row[$indexTypeLocal], $types)) &&
-        (!$nombrePieces || $row[$indexNombrePieces] >= $nombrePieces) // Modification ici
+        (!$nombrePieces || $row[$indexNombrePieces] >= $nombrePieces)
     ) {
         echo '<tr>';
         echo '<td>' . $numeroResultat . '</td>'; // Affiche le numéro de résultat
         foreach ($row as $value) {
             echo '<td>' . $value . '</td>';
         }
+        $idMutation = $row[$indexIdMutation]; // Récupère la valeur de id_mutation
+        echo '<td><a href="fivereco.php?id_mutation=' . $idMutation . '">Voir Similaires</a></td>';
         echo '</tr>';
         $numeroResultat++; // Incrémente le numéro de résultat
     }
