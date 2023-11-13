@@ -1,4 +1,4 @@
-#!C:\Users\Utilisateur\Desktop\Recommander_system\scraping\venv\Scripts\python.exe
+#!c:\users\cleme\desktop\capprojet5a\recommander_system\scraping\venv\scripts\python.exe
 
 import sys
 import json
