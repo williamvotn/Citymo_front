@@ -204,8 +204,8 @@ input[type="search"]::-webkit-search-decoration {
     border-color: #05AE0E;
 }
 .btn-warning{
-    color: #FDC600;
-    border-color: #FDC600;
+    color: #3472F7;
+    border-color: #3472F7;
 }
 .btn-danger{
     color: #FF3B30;
@@ -274,7 +274,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 .btn-warning.disabled, .btn-warning[disabled], fieldset[disabled] .btn-warning, .btn-warning.disabled:hover, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover, .btn-warning.disabled:focus, .btn-warning[disabled]:focus, fieldset[disabled] .btn-warning:focus, .btn-warning.disabled:active, .btn-warning[disabled]:active, fieldset[disabled] .btn-warning:active, .btn-warning.disabled.active, .btn-warning.active[disabled], fieldset[disabled] .btn-warning.active {
     background-color: rgba(0, 0, 0, 0);
-    border-color: #FDC600;
+    border-color: #3472F7;
 }
 .input-group-addon {
     background-color: #FFFFFF;
@@ -283,8 +283,8 @@ input[type="search"]::-webkit-search-decoration {
 }
 .btn-primary {
     color: #FFF;
-    background-color: #FDC600;
-    border-color: #FDC600;
+    background-color: #3472F7;
+    border-color: #3472F7;
     border-radius: 1px;
     padding: 10px 20px;
     font-weight: 600;
@@ -298,15 +298,15 @@ input[type="search"]::-webkit-search-decoration {
 .btn-default {
     border-radius: 1px;
     padding: 10px 20px;
-    border: 1px solid #FDC600;
+    border: 1px solid #3472F7;
     color: #000;
-    background-color: #FDC600;
+    background-color: #3472F7;
     border-color: #F0F0F0;
     font-weight: 600;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
     color: #000;
-    background-color: #FDC600;
+    background-color: #3472F7;
     border-color: #F0F0F0;
     font-weight: 600;
 }
@@ -348,7 +348,7 @@ input[type="search"]::-webkit-search-decoration {
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 .form-inline input[type=submit]{
-    background: #FDC600;
+    background: #3472F7;
     color: #fff;
     height: 40px;
     width: 90px;
@@ -439,7 +439,7 @@ input[type="search"]::-webkit-search-decoration {
     border-left: 0 none;
 }
 .search-btn ,.toggle-btn{
-    background-color: #FDC600;
+    background-color: #3472F7;
     color: #333;
     font-size: 16px;
     border: 1px solid #EAE9E9;
@@ -708,7 +708,7 @@ label small{
 
 .navbar-default .navbar-nav > li > a.active:after{
 
-    background-color: #FDC600;
+    background-color: #3472F7;
     bottom: -24px;
     content: "";
     height: 5px;
@@ -718,7 +718,7 @@ label small{
     width: 100%;
 }
 .navbar-default .navbar-nav > li > a::after {
-    background-color: #FDC600;
+    background-color: #3472F7;
     bottom: -24px;
     content: "";
     height: 5px;
@@ -894,7 +894,7 @@ label small{
     font-weight: 300;
 }
 .navbar .yamm-content ul li a:hover {
-    color: #FDC600;
+    color: #3472F7;
     text-decoration: none;
 }
 .navbar .yamm-content .banner {
