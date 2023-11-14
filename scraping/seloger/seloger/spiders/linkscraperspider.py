@@ -21,24 +21,49 @@ class LinkScraperSpider(scrapy.Spider):
         apartment_id = response.url.split('-')[-1].split('.')[0]
 
         # Extraire le lien de l'image
-        image_url = response.css('div.grid-3 a.classified-medias__picture picture img::attr(src)').get()
-        # Si le sélecteur initial ne renvoie aucun résultat, chercher dans 'grid-2' puis 'grid-1'
-        if not image_url:
-            image_url = response.css('div.grid-2 a.classified-medias__picture picture img::attr(src)').get()
-            if not image_url:
-                # Changer le sélecteur pour rechercher dans <classified-medias grid-no> <picture data-v-57a34d75> <img::attr(src)>
-                image_url = response.css('section.classified-medias.grid-no img::attr(src)').get()
+        if response.css('div.grid-3'):
+            images_url = response.css('div.grid-3 a.classified-medias__picture picture img::attr(src)').getall()
+
+        elif response.css('div.grid-2'):
+            images_url = response.css('div.grid-2 a.classified-medias__picture img::attr(src)').getall()
+                
+        else :
+            images_url = response.css('section.classified-medias.grid-no img::attr(src)').get()
+
 
         # Récupérer le prix depuis les méta-données
         price = response.meta.get('price', '')
 
+        # Récupérer les caractéristiques depuis les balises <li> et <span class="feature">
+        features_list = response.css('ul.unstyled.features-list li::text').getall()
+        span_features = response.css('div.popin-body ul.unstyled.features-list span.feature::text').getall()
+        
+        # Concaténer toutes les caractéristiques en une seule chaîne
+        all_features = ', '.join(span_features + features_list)
+
+
+        # Récupération de la classe de performance énergétique 
+        isolation_class = response.css('div.container-dpe div.pointer::text').get()
+        if not isolation_class:
+            isolation_class = "Non communiqué"
+
+        # Récupération de la classe d'émission à effet de serre 
+        ecologic_class = response.css('div.container-ges div.pointer::text').get()
+        if not ecologic_class:
+            ecologic_class = "Non communiqué"
+
+        # Récupération de la description
+        description = response.css('p.truncated-description span::text').get()
+        description = description.replace('\n', '')
+
+        
         # Écrire les résultats dans le nouveau CSV
         with open('dataset.csv', 'a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
 
             # Si le fichier est vide, écrire l'entête
             if file.tell() == 0:
-                writer.writerow(['ID', 'Link', 'ImageURL', 'Price'])
+                writer.writerow(['ID', 'Lien source', 'ImageURL', 'Prix', 'Features', 'Classe de performance énergétique' ,'Classe d\'émission à effet de serre', 'Description'])
 
             # Ajouter les colonnes extraites de la page
-            writer.writerow([apartment_id, response.url, image_url, price])
+            writer.writerow([apartment_id, response.url, images_url, price, all_features, isolation_class, ecologic_class, description])
