@@ -3,7 +3,7 @@ import csv
 
 class SelogerSpider(scrapy.Spider):
     name = 'seloger'
-    start_urls = ['https://immobilier.lefigaro.fr/annonces/immobilier-vente-appartement-paris.html?types=maison,maison%2Bneuve&sort=6&priceMin=5700000']
+    start_urls = ['https://immobilier.lefigaro.fr/annonces/immobilier-vente-appartement-paris.html?types=maison,maison%2Bneuve&sort=6&priceMin=1280000']
     base_url = 'https://immobilier.lefigaro.fr'
     max_pages = 100  # Nombre maximal de pages à scraper
 

@@ -6,7 +6,7 @@ class LinkScraperSpider(scrapy.Spider):
 
     def start_requests(self):
         # Charger les liens depuis le CSV
-        with open('3annonces_links.csv', 'r') as file:
+        with open('annonces_links.csv', 'r') as file:
             reader = csv.reader(file)
             # Ignorer la première ligne du CSV (entête)
             next(reader, None)
