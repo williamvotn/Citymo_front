@@ -1,5 +1,6 @@
 import scrapy
 import csv
+import re
 
 class LinkScraperSpider(scrapy.Spider):
     name = 'link_scraper'
@@ -30,6 +31,9 @@ class LinkScraperSpider(scrapy.Spider):
         else :
             images_url = response.css('section.classified-medias.grid-no img::attr(src)').get()
 
+        # Récupération de l'arridissement ****** ** * * (75013) *** *
+        #                                                ^^^^^
+        arrondissement = re.search(r'\((.*?)\)', response.xpath('//title/text()').get()).group(1)
 
         # Récupérer le prix depuis les méta-données
         price = response.meta.get('price', '')
@@ -63,7 +67,7 @@ class LinkScraperSpider(scrapy.Spider):
 
             # Si le fichier est vide, écrire l'entête
             if file.tell() == 0:
-                writer.writerow(['ID', 'Lien source', 'ImageURL', 'Prix', 'Features', 'Classe de performance énergétique' ,'Classe d\'émission à effet de serre', 'Description'])
+                writer.writerow(['ID', 'Lien source', 'ImageURL', 'Prix', 'Arondissement', 'Features', 'Classe de performance énergétique' ,'Classe d\'émission à effet de serre', 'Description'])
 
             # Ajouter les colonnes extraites de la page
-            writer.writerow([apartment_id, response.url, images_url, price, all_features, isolation_class, ecologic_class, description])
+            writer.writerow([apartment_id, response.url, images_url, price, arrondissement, all_features, isolation_class, ecologic_class, description])
