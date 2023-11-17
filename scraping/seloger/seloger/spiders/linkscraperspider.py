@@ -29,7 +29,7 @@ class LinkScraperSpider(scrapy.Spider):
             images_url = response.css('div.grid-2 a.classified-medias__picture img::attr(src)').getall()
                 
         else :
-            images_url = response.css('section.classified-medias.grid-no img::attr(src)').get()
+            images_url = response.css('section.classified-medias.grid-no img::attr(src)').getall()
 
         # Récupération de l'arridissement ****** ** * * (75013) *** *
         #                                                ^^^^^
@@ -47,12 +47,12 @@ class LinkScraperSpider(scrapy.Spider):
 
 
         # Récupération de la classe de performance énergétique 
-        isolation_class = response.css('div.container-dpe div.pointer::text').get()
+        isolation_class = response.css('div.container-dpe p.pointer::text').get()
         if not isolation_class:
             isolation_class = "Non communiqué"
 
         # Récupération de la classe d'émission à effet de serre 
-        ecologic_class = response.css('div.container-ges div.pointer::text').get()
+        ecologic_class = response.css('div.container-ges p.pointer::text').get()
         if not ecologic_class:
             ecologic_class = "Non communiqué"
 
