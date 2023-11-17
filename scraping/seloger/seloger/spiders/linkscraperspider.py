@@ -31,7 +31,7 @@ class LinkScraperSpider(scrapy.Spider):
         else :
             images_url = response.css('section.classified-medias.grid-no img::attr(src)').getall()
 
-        # Récupération de l'arridissement ****** ** * * (75013) *** *
+        # Récupération de l'arrondissement ****** ** * * (75013) *** *
         #                                                ^^^^^
         arrondissement = re.search(r'\((.*?)\)', response.xpath('//title/text()').get()).group(1)
 
