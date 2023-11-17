@@ -10,4 +10,4 @@ correspondance = pd.read_csv('correspondance.csv')
 result = pd.merge(dataset, correspondance, on='Arrondissement')
 
 # Enregistrer le résultat dans un nouveau fichier CSV
-result.to_csv('dataset_with_coordinates.csv', index=False)
+result.to_csv('new_dataset.csv', index=False)
