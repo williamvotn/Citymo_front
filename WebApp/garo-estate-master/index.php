@@ -101,7 +101,7 @@
                     <form action="traitement.php" method="post" class="form-inline">
                         <div class="col-md-12 clear">
                             <div class="col-md-6">
-                                <label for="Arrondissement">Arrondissement :</label>
+                                <label for="Arrondissement">Code Postal :</label>
                                 <input type="text" id="Arrondissement" name="Arrondissement" class="form-control" placeholder="Arrondissement">
                             </div>
                             
