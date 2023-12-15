@@ -1,0 +1,10 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Copiez le script d'initialisation et le fichier CSV dans le conteneur
+COPY init.sh /docker-entrypoint-initdb.d/
+COPY paris.csv /docker-entrypoint-initdb.d/
+
+# Assurez-vous que le script a les autorisations appropriées
+RUN chmod 777 /docker-entrypoint-initdb.d/init.sh
