@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS paris (
     Nombre_de_pieces INT,
     Nombre_de_chambres INT,
     Nombre_de_salles_de_bain INT,
-    Salles_d_eau INT,
+    Nombre_de_salles_d_eau INT,
     Chauffage VARCHAR(255),
     Cave BOOLEAN,
     Ascenseur BOOLEAN,
