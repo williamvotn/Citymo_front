@@ -7,11 +7,10 @@ USE siteimmo;
 SET GLOBAL local_infile=1;
 EOF
 
-
 # Utilisez la base de donnees
 mysql -h localhost -u root -proot --local-infile=1 siteimmo <<EOF
 # Creez la table si elle n'existe pas
-CREATE TABLE IF NOT EXISTS paris (
+CREATE TABLE IF NOT EXISTS Paris (
     ID INT PRIMARY KEY,
     Lien_source TEXT,
     ImageURL TEXT,
@@ -48,9 +47,21 @@ CREATE TABLE IF NOT EXISTS paris (
     Jardin BOOLEAN
 );
 
+CREATE TABLE IF NOT EXISTS Users (
+    Email VARCHAR(255) PRIMARY KEY,
+    Password VARCHAR(255),
+    Name VARCHAR(255),
+    Firstname VARCHAR(255),
+    Phone VARCHAR(255),
+    Address VARCHAR(255),
+    ZIP_Code VARCHAR(255),
+    Birthdate DATE,
+    Inscription_date DATE
+);
+
 -- Utiliser LOAD DATA INFILE pour charger les données depuis le fichier CSV
 LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/paris.csv'
-INTO TABLE paris
+INTO TABLE Paris
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
