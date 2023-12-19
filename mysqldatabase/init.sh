@@ -47,8 +47,9 @@ CREATE TABLE IF NOT EXISTS Paris (
     Jardin BOOLEAN
 );
 
-CREATE TABLE IF NOT EXISTS Users (
-    Email VARCHAR(255) PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS User (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Email VARCHAR(255) UNIQUE, -- J'ai ajouté UNIQUE pour garantir que chaque email est unique
     Password VARCHAR(255),
     Name VARCHAR(255),
     Firstname VARCHAR(255),
@@ -58,6 +59,7 @@ CREATE TABLE IF NOT EXISTS Users (
     Birthdate DATE,
     Inscription_date DATE
 );
+
 
 -- Utiliser LOAD DATA INFILE pour charger les données depuis le fichier CSV
 LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/paris.csv'
