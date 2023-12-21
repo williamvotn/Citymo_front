@@ -11,7 +11,7 @@ $idMutation = $_GET['id_mutation'];
 // Chemin vers le script Python recommandation.py
 $pythonScript = './recommandation.py';
 $pythonCsv = './top10.csv';
-//putenv('PATH_TO_PYTHON=C:/Users/Guillaume/AppData/Local/Programs/Python/Python312/python.exe');
+putenv('PATH_TO_PYTHON=C:/Users/Guillaume/AppData/Local/Programs/Python/Python312/python3.exe');
 
 // Construire la commande en fonction de la présence ou de l'absence de no_id_mutation
 if ($noidMutation !== null) {
