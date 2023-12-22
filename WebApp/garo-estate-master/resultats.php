@@ -1,3 +1,66 @@
+<style>
+    /* Style de base pour le bouton */
+    .property-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+        /* Style de la classe "property-icon" */
+        .proerty-th-list .property-icon {
+        background-color: rgba(93, 138, 255, 0.2); /* Couleur de fond souhaitée */
+        /* Autres styles si nécessaire */
+    }
+  .custom-max-height {
+    max-height: 640px;
+  }
+  .custom-max-height2 {
+    max-height: 620px;
+  }
+  .property-icon {
+    position:relative;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(93, 138, 255, 0.2); /* Couleur de fond souhaitée */
+    /* Autres styles si nécessaire */
+  }
+  .proerty-th-list .col-md-4 .item-entry{
+    padding-right:0;
+  }
+  .proerty-th-list .proerty-price {
+    padding-right:15px;
+  }
+  p.maximum_height{
+    max-height:200px;
+    overflow: auto;
+  }
+          /* Pour WebKit (Safari, Chrome, etc.) */
+          ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #5D8AFF;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+                /* Pour Firefox */
+        body {
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f1f1f1;
+        }
+
+        /* Pour Microsoft Edge et Internet Explorer */
+        body {
+            -ms-overflow-style: none; /* Cacher la barre de défilement originale d'IE et Edge */
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f1f1f1;
+        }
+
+</style>
 <?php
 $jsonData = file_get_contents('php://input');
 $data = json_decode($jsonData, true);
@@ -36,28 +99,31 @@ if (!empty($propertiesOnPage)) {
     echo '<div id="list-type" class="proerty-th-list">';
 
     foreach ($propertiesOnPage as $property) {
-        echo '<div class="col-sm-6 col-md-4 p0">';
-        echo '<div class="box-two proerty-item">';
+        echo '<div class="col-sm-6 col-md-4 p0 custom-max-height">';
+        echo '<div class="box-two proerty-item custom-max-height2">';
         echo '<form action="property.php" method="post">';
         echo '<div class="item-thumb">';
         // Afficher l'image de la colonne 'ImageURL'
         $imageURLs = explode(' ', $property['ImageURL']);
         $firstImageURL = $imageURLs[0];
         echo '<input type="hidden" name="property" value="' . htmlspecialchars(json_encode($property)) . '">';
-        echo '<button type="submit"><img src="' . $firstImageURL . '"></button>';
+        echo '<button type="submit" class="property-button"><img src="' . $firstImageURL . '"></button>';
         echo '</div>';
         echo '</form>';
         
 
         echo '<div class="item-entry overflow">';
-        echo '<h5><form action="property.php" method="post"><button type="submit" name="property_id" value="' . $property['ID'] . '">' . $property['ID'] . '</button></form></h5>';
+        echo '<form action="property.php" method="post">';
+        echo '<input type="hidden" name="property" value="' . htmlspecialchars(json_encode($property)) . '">
+        <h5>
+        <button type="submit" class="property-button" name="property_id" value="' . $property['ID'] . '">' . $property['ID'] . '</button></h5></form>';
         echo '<div class="dot-hr"></div>';
         // Afficher la surface de la colonne 'Surface'
         echo '<span class="pull-left"><b>Surface :</b> ' . $property['Surface'] . ' m²</span>';
         // Afficher le prix de la colonne 'Prix'
         echo '<span class="proerty-price pull-right"> $ ' . $property['Prix'] . '</span>';
         // Afficher la description de la colonne 'Description'
-        echo '<p>' . $property['Description'] . '</p>';
+        echo '<br><p class="maximum_height">' . $property['Description'] . '</p>';
         echo '<div class="property-icon">';
         // Afficher le nombre de chambres de la colonne 'Nombre_de_chambres'
         echo '<img src="assets/img/icon/bed.png">(' . $property['Nombre_de_chambres'] . ')|';
@@ -65,12 +131,6 @@ if (!empty($propertiesOnPage)) {
         echo '<img src="assets/img/icon/shawer.png">(' . $property['Nombre_de_salles_de_bain'] . ')|';
         // Afficher le nombre de garages de la colonne 'Garage'
         echo '<img src="assets/img/icon/cars.png">(' . $property['Garage'] . ')';
-
-        // Afficher l'arrondissement de la colonne 'Arrondissement'
-        echo '<p><b>Arrondissement :</b> ' . $property['Arrondissement'] . '</p>';
-        // Afficher le nombre de pièces de la colonne 'Nombre_de_pieces'
-        echo '<p><b>Nombre de pièces :</b> ' . $property['Nombre_de_pieces'] . '</p>';
-
         echo '</div>';
         echo '</div>';
 

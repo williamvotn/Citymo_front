@@ -2,6 +2,14 @@
 // property.php
 include 'similar-properties.php';
 // Vérifier si le formulaire a été soumis
+
+if (isset($_POST['no_id_mutation'])) {
+    $noidMutation = $_POST['no_id_mutation'];
+} else {
+    $noidMutation = null; // Définir la valeur par défaut si elle n'est pas définie
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifier si property existe dans la variable POST
     if (isset($_POST['property'])) {
@@ -85,8 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <ul class="main-nav nav navbar-nav navbar-right">
 
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.php">Properties</a></li>
 
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
@@ -100,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title"> ID de Propriété : <?php echo $property['ID']?> </h1>               
+                    <h1 class="page-title">Vente appartement de <?php echo $property['Nombre_de_chambres']?> chambre(s) et de <?php echo $property['Surface']?> m²</h1>              
                     </div>
                 </div>
             </div>
@@ -196,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </span>
                                     <span class="property-info-entry">
                                         <span class="property-info-label">Salle(s) d'eau</span>
-                                        <span class="property-info-value"><?php echo $property['Nombre_de_chambres']?></span>
+                                        <span class="property-info-value"><?php echo $property['Nombre_de_salles_d_eau']?></span>
                                     </span>
                                 </div>
 
@@ -239,15 +246,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry"><?= ($property['Parking'] == 1) ? 'OUI' : 'NON' ?></span>
     </li>
 
-    <li>
-        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Chauffage</span>
-        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry"><?= $property['Chauffage'] ?></span>
-    </li>
+<li>
+    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Chauffage</span>
+    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">
+        <?php
+        if ($property['Chauffage'] == '0') {
+            echo "Non renseigné";
+        } else {
+            echo $property['Chauffage'];
+        }
+        ?>
+    </span>
+</li>
 
-    <li>
-        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Exposition</span>
-        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry"><?= $property['Exposition'] ?></span>
-    </li>
+<li>
+    <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Exposition</span>
+    <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">
+        <?php
+        if ($property['Exposition'] == '0') {
+            echo "Non renseigné";
+        } else {
+            echo $property['Exposition'];
+        }
+        ?>
+    </span>
+</li>
 
     <li>
         <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Balcon</span>
@@ -277,7 +300,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                         <?php
-                        generateSimilarProperties($property['ID']);
+                        generateSimilarProperties($property['ID'],$noidMutation);
                         ?>
                         </aside>
                     </div>

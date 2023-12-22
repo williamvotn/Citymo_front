@@ -1,6 +1,6 @@
 <?php
 // Informations de connexion à la base de données
-$serveur = "localhost:5000"; // Nom du conteneur Docker ou adresse IP du conteneur
+$serveur = "db"; // Nom du conteneur Docker ou adresse IP du conteneur
 $utilisateur = "root"; // Nom d'utilisateur de la base de données
 $motDePasse = "root"; // Mot de passe de la base de données
 $nomDeLaBase = "siteimmo"; // Nom de la base de données

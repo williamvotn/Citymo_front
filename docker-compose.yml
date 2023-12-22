@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  web:
+    image: projet-immo:latest
+    ports:
+      - "8080:80"
+    networks:
+      - mon-reseau
+    depends_on:
+      - db
+
+  db:
+    image: clementjosse/siteimmo:latest
+    ports:
+      - "5000:3306"
+    networks:
+      - mon-reseau
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: siteimmo
+
+networks:
+  mon-reseau:

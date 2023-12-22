@@ -81,7 +81,7 @@
             <div class="container slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>à La recherche d'un immobilier est devenue simple avec notre site</h2>
+                        <h2>L'immobilier devient plus simple</h2>
 
                     </div>
                 </div>
@@ -97,54 +97,37 @@
     <div class="home-lager-shearch" style="padding-top: 25px; margin-top: -125px; padding-bottom: 60px; background-color: rgb(252, 252, 252);">
         <div class="container">
             <div class="col-md-12 large-search"> 
-                <div class="search-form wow pulse">
-                    <form action="traitement.php" method="post" class="form-inline">
-                        <div class="col-md-12 clear">
-                            <div class="col-md-6">
-                                <label for="Arrondissement">Code Postal :</label>
-                                <input type="text" id="Arrondissement" name="Arrondissement" class="form-control" placeholder="Arrondissement">
-                            </div>
-                            
-                            
-                            <div class="col-md-6">
-                                <label for="price-range">Budget (€):</label>
-                                <input type="text" id="price-range" class="span2" value="[0,20000000]" data-slider-min="0" 
-                                    data-slider-max="20000000" data-slider-step="10000" 
-                                data-slider-value="[0,20000000]" name="valeur_fonciere">
-                                <br />
-                                <b class="pull-left color">0€</b> 
-                                <b class="pull-right color">20,000,000€</b>
-                            </div>
-
-                            
-
-                        </div>
-                        <div class="col-md-12 clear">
-                            <div class="col-md-5">
-                            </div>
-                            <div class="col-md-4">                                     
-                                <label>Type :</label><br>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"checked name="type_appartement" value="Appartement"> Appartement
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"checked name="type_maison" value="Maison"> Maison
-                                        </label>
-                                    </div>
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-
+            <div class="search-form wow pulse">
+                <form action="properties.php" method="post" class="form-inline">
+                    <div class="col-md-12 clear">
+                        <div class="col-md-6">
+                            <label for="Arrondissement">Arrondissement :</label>
+                            <input type="text" id="Arrondissement" name="arrondissement" class="form-control" placeholder="Arrondissement">
                         </div>
 
-                        <div class="center">
-                            <input type="submit" value="" class="btn btn-default btn-lg-sheach">
+                        <div class="col-md-6">
+                            <label for="price-range">Budget (€):</label>
+                            <input type="text" id="price-range" class="span2" value="0,20000000" data-slider-min="0" 
+                                data-slider-max="20000000" data-slider-step="10000" 
+                                data-slider-value="[0,20000000]" name="prix">
+                            <br />
+                            <b class="pull-left color">0€</b> 
+                            <b class="pull-right color">20,000,000€</b>
                         </div>
-                    </form>
-                </div>
+                    </div>
+
+                    <div class="col-md-12 clear">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+
+                    <div class="center">
+                        <input type="submit" value="" class="btn btn-default btn-lg-sheach">
+                    </div>
+                </form>
+            </div>
             </div>
         </div>
     </div>

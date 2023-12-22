@@ -1,11 +1,17 @@
+# Dockerfile pour le conteneur Apache avec PHP
 FROM php:7.4-apache
 
+# Activez l'extension PDO MySQL
+RUN docker-php-ext-install pdo_mysql
+
+# Installation de l'extension GD
 # Installation de l'extension GD
 RUN apt-get update \
     && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        default-libmysqlclient-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
@@ -15,14 +21,10 @@ RUN apt-get install -y python3 python3-pip \
     && pip3 install --upgrade pip \
     && pip3 install -r requirements.txt
 
+ENV PYTHON_PATH /usr/bin/python3
+
 # Copiez le contenu de votre application
 COPY ./garo-estate-master /var/www/html/
 
-# Exposez le port 80 pour le serveur Apache
+# Exposez le port Apache
 EXPOSE 80
-
-# Configuration Apache pour définir les fichiers index
-RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
-
-# Commande par défaut pour lancer Apache
-CMD ["apache2-foreground"]
