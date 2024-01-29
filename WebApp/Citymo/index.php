@@ -9,7 +9,7 @@
         <title>Page d'accueil</title>
         <meta name="description" content="un siteWeb immobilier">
         <meta name="author" content="CAP5">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme, bootstrap template">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate, bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -53,7 +53,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.php"><img src="assets/img/logo3.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,9 +72,9 @@
         <div class="slider-area">
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
-
-                    <div class="item"><img src="assets/img/slide1/slider-image-41.png" alt=""></div>
-                    <div class="item"><img src="assets/img/slide1/slider-image-61.jpg" alt=""></div>
+                    <!-- DIMENSIOSN 1740*1000 -->
+                    <div class="item"><img src="assets/img/slide1/slider-image-2.jpg" alt=""></div>
+                    <div class="item"><img src="assets/img/slide1/slider-image-3.jpg" alt=""></div>
 
                 </div>
             </div>
