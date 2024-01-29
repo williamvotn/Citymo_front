@@ -47,18 +47,22 @@ CREATE TABLE IF NOT EXISTS Paris (
     Jardin BOOLEAN
 );
 
-CREATE TABLE IF NOT EXISTS User (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Email VARCHAR(255) UNIQUE, -- J'ai ajouté UNIQUE pour garantir que chaque email est unique
-    Password VARCHAR(255),
-    Name VARCHAR(255),
-    Firstname VARCHAR(255),
-    Phone VARCHAR(255),
-    Address VARCHAR(255),
-    ZIP_Code VARCHAR(255),
-    Birthdate DATE,
-    Inscription_date DATE
+CREATE TABLE IF NOT EXISTS user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    name VARCHAR(255),
+    firstname VARCHAR(255),
+    phone VARCHAR(255),
+    address VARCHAR(255),
+    zip_code VARCHAR(255),
+    birthdate DATE,
+    inscription_date DATE
 );
+
+INSERT INTO user (email, password, name, firstname, phone, address, zip_code, birthdate, inscription_date)
+VALUES ('john.doe@example.com', 'motdepasse123', 'Doe', 'John', '123456789', '123 Main St', '12345', '1990-01-01', '2023-01-01');
+
 
 
 -- Utiliser LOAD DATA INFILE pour charger les données depuis le fichier CSV
