@@ -1,5 +1,6 @@
 # Citymo
 Citymo est un projet de recommandation d'appartement.
+![image](https://github.com/WilliamVOTHANH/Site_immo_Front/assets/86595295/49d37c18-f744-437c-87ad-7c34ab67f24d)
 
 
 ### Requirements :
