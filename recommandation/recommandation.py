@@ -7,7 +7,16 @@ import time
 from geopy.distance import geodesic
 import matplotlib.pyplot as plt
 import numpy as np
+import os  # Importez le module os
 
+# Assurez-vous que le chemin absolu que vous avez spécifié est correct
+csv_file_path = 'C:/Users/Guillaume/Desktop/5A/Cap Projet/Recommander_system/dataset/paris.csv'
+
+# Vérifiez si le fichier est accessible
+if os.path.isfile(csv_file_path):
+    print(f"Le fichier {csv_file_path} est accessible.")
+else:
+    print(f"Le fichier {csv_file_path} n'est pas accessible.")
 
 # Exempled d'utilisation :
 
@@ -27,7 +36,7 @@ parser.add_argument('--without', type=str, help="ID de l'appartement à exclure 
 args = parser.parse_args()
 
 # Lire le fichier CSV
-df = pd.read_csv('dataset/paris.csv')
+df = pd.read_csv(csv_file_path)
 
 # Trouver l'index de l'appartement de référence dans le DataFrame
 reference_index = df[df['id_mutation'] == args.reference_id].index[0]
@@ -91,7 +100,7 @@ df_sorted.drop(columns=['cosine_similarity'], inplace=True)
 df_sorted.drop(columns=['coef_plan'], inplace=True)
 
 # Enregistrer le DataFrame trié dans un nouveau fichier CSV
-df_sorted.to_csv('recommandation/top10.csv', index=False)
+df_sorted.to_csv('./top10.csv', index=False)
 
 # Enregistrer le moment où le programme se termine
 end_time = time.time()
