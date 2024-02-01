@@ -51,7 +51,7 @@ echo '            <div class="panel panel-default sidebar-menu similar-property-
         $imageURLs = explode(' ', $property['ImageURL']);
         $firstImageURL = $imageURLs[0];
         echo '
-            <form action="property.php" method="post">
+            <form action="appartement.php" method="post">
                 <button type="submit">
                     <ul>
                         <li>

@@ -6,10 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Page d'accueil</title>
+        <title>Citymo</title>
         <meta name="description" content="un siteWeb immobilier">
         <meta name="author" content="CAP5">
-        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme, bootstrap template">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate, bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -33,6 +33,15 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <style>
+                .footer-title-line {
+        color: #5D8AFF; /* Remplacez #5D8AFF par la couleur de votre choix */
+        background: #5D8AFF;
+    }
+    .footer-menu li {
+    border-bottom: 1px solid #5D8AFF;
+}
+    </style>
     </head>  
     <body>
 
@@ -53,14 +62,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.php"><img src="assets/img/logo3.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <ul class="main-nav nav navbar-nav navbar-right">
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Se Connecter</a></li>
 
                         
                     </ul>
@@ -72,16 +80,16 @@
         <div class="slider-area">
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
-
-                    <div class="item"><img src="assets/img/slide1/slider-image-41.png" alt=""></div>
-                    <div class="item"><img src="assets/img/slide1/slider-image-61.jpg" alt=""></div>
+                    <!-- DIMENSIOSN 1740*1000 -->
+                    <div class="item"><img src="assets/img/slide1/slider-image-2.jpg" alt=""></div>
+                    <div class="item"><img src="assets/img/slide1/slider-image-3.jpg" alt=""></div>
 
                 </div>
             </div>
             <div class="container slider-content">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>L'immobilier devient plus simple</h2>
+                        <h2>Découvrez votre futur appartement avec nous</h2>
 
                     </div>
                 </div>
@@ -222,6 +230,40 @@
         <script src="assets/js/price-range.js"></script>
 
         <script src="assets/js/main.js"></script>
+  <!-- Footer area-->
+  <div class="footer-area">
 
+<div class=" footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                <div class="single-footer">
+                    <h4>About us </h4>
+                    <div class="footer-title-line"></div>
+
+                    <img src="assets/img/logo3.png" alt="" class="wow pulse" data-wow-delay="1s">
+                    <p>Pour contacter Citymo</p>
+                    <ul class="footer-adress">
+                        <li><i class="pe-7s-map-marker strong"> </i> 9089 rue du Succès</li>
+                        <li><i class="pe-7s-mail strong"> </i> email@Citymo.com</li>
+                        <li><i class="pe-7s-call strong"> </i> +33 633333333</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                <div class="single-footer">
+                    <h4>Quick links </h4>
+                    <div class="footer-title-line"></div>
+                    <ul class="footer-menu">
+                        <li><a href="properties.php">Properties</a>  </li> 
+                        <li><a href="index.php">Services</a>  </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
     </body>
 </html>
