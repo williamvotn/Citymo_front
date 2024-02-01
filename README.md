@@ -1,75 +1,48 @@
-# Citymo
-Citymo est un projet de recommandation d'appartement.
-![image](https://github.com/WilliamVOTHANH/Site_immo_Front/assets/86595295/49d37c18-f744-437c-87ad-7c34ab67f24d)
+# Citymo - Recherche Immobilière à Paris
+
+## Introduction
+
+Bienvenue dans Citymo, un outil de recherche immobilière vous permettant de trouver tous les appartements à vendre dans Paris.
+
+## Lancement du Projet
+
+Pour lancer le projet, suivez ces étapes simples :
+
+1. **Login Docker :** Connectez-vous à Docker à l'aide de la commande suivante :
 
 
-### Requirements :
-- Avoir installé Docker Desktop
-- Avoir un CLI Git, ex: Git Bash (recommandé)
-
-# 2 possibilités pour faire tourner le projet :
-## - Via Docker hub
-Avec cette possibilité, on va récupérer les images uploadées sur Docker hub et les faire tourner sur Docker Desktop.
-### Connexion à Docker hub
-```
-docker login
-```
-### Récupération des images
-```
-docker pull clementjosse/siteimmo:latest
-```
-et
-```
-docker pull guillaume971/projet-immo:latest
-```
-### Lancer le projet 
-```
-docker-compose up -d
-```
-Le projet est ensuite accessible à l'addresse: 
-http://localhost:8080/
+    docker login
 
 
-## - Via git clone puis docker build en local
-Avec cette possibilité, on va récupérer le code du projet, build les images docker localement et les faire tourner sur Docker Desktop.
-### Récupération du projet
-```
-git clone git@github.com:WilliamVOTHANH/Site_immo_Front.git
-```
-### Build des images
-Build de l'interface :
-```
-docker build -t citymo_front:latest ./WebApp
-```
-Build de la base de donnée :
-```
-docker build -t citymo_bdd:latest ./mysqldatabase
-```
-### Modification du docker-compose.yml
-remplacer les noms des images du docker_compose par celles créées:
-- Pour l'interface :
-```
-  web:
-    image: guillaume971/projet-immo:latest
+   Saisissez votre nom d'utilisateur et votre mot de passe Docker lorsque vous y êtes invité.
 
-# A remplacer par :
-  
-  web:
-    image: citymo_front:latest
-```
-- Pour la base de donnée :
-```
-  db:
-    image: clementjosse/siteimmo:latest
+2. **Pull des Containers :** Récupérez les images Docker nécessaires en exécutant les commandes suivantes :
 
-# A remplacer par :
-  
-  db:
-    image: citymo_bdd:latest
-```
-### Lancer le projet 
-```
-docker-compose up -d
-```
-Le projet est ensuite accessible à l'addresse: 
-http://localhost:8080/
+
+    docker pull clementjosse/siteimmo:latest
+    docker pull guillaume971/projet-immo:latest
+
+
+3. **Dossier Docker-Compose :** Assurez-vous d'être dans le dossier contenant le fichier `docker-compose.yml`.
+
+4. **Lancement de l'Application :** Démarrez l'application avec la commande :
+
+
+    docker-compose up
+
+
+   L'application sera disponible à l'adresse http://localhost:8080 dans votre navigateur.
+
+## Utilisation
+
+1. Accédez à http://localhost:8080 dans votre navigateur.
+
+2. Utilisez les fonctionnalités de recherche pour trouver des appartements à vendre à Paris.
+
+## Besoin d'aide ?
+
+Si vous avez des problèmes ou des questions, n'hésitez pas à nous contacter à [vothanh@et.esiea.fr].
+
+---
+
+Merci d'utiliser Citymo ! Nous espérons que vous trouverez votre appartement idéal à Paris.
