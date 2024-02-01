@@ -122,8 +122,15 @@ try {
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        
-
+        <style>
+                .footer-title-line {
+        color: #5D8AFF; /* Remplacez #5D8AFF par la couleur de votre choix */
+        background: #5D8AFF;
+    }
+    .footer-menu li {
+    border-bottom: 1px solid #5D8AFF;
+}
+    </style>
 
     </head>
     
@@ -155,7 +162,6 @@ try {
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Se connecter</button>
                         
                     </div>
                 </div><!-- /.navbar-collapse -->
@@ -167,7 +173,7 @@ try {
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Projet Immobilier</h1>               
+                        <h1 class="page-title">Citymo</h1>               
                     </div>
                 </div>
             </div>
@@ -188,11 +194,23 @@ try {
                             <div class="panel-body search-widget">
                             <form action="properties.php" method="post" class="form-inline">
                             <fieldset>
-    <div class="row">
-        <div class="col-xs-12">
-            <input type="text" class="form-control" name="arrondissement" placeholder="Arrondissement" value="<?php echo isset($arrondissement) ? htmlspecialchars($arrondissement) : ''; ?>">
-        </div>
+                            <div class="row">
+    <div class="col-xs-12">
+        <label for="arrondissementSelect">Arrondissement:</label>
+        <select id="arrondissementSelect" name="arrondissement" class="form-control">
+            <?php
+            $selectedArrondissement = isset($arrondissement) ? htmlspecialchars($arrondissement) : '';
+
+            // Générer les options pour les arrondissements de Paris (75001 à 75020)
+            for ($i = 1; $i <= 20; $i++) {
+                $arrondissementValue = '750' . str_pad($i, 2, '0', STR_PAD_LEFT);
+                $selected = ($arrondissementValue == $selectedArrondissement) ? 'selected' : '';
+                echo "<option value=\"$arrondissementValue\" $selected>$arrondissementValue</option>";
+            }
+            ?>
+        </select>
     </div>
+</div>
 </fieldset>
 
 <fieldset>
@@ -257,10 +275,10 @@ try {
 
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
-                        <div class="col-xs-2 layout-switcher">
+                        <!--/ .layout-switcher<div class="col-xs-2 layout-switcher">
                             <a class="layout-list active" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
                             <a class="layout-grid" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
-                        </div><!--/ .layout-switcher-->
+                        </div>-->
                     </div>
 <div id="results-container"></div>
 
@@ -318,5 +336,40 @@ $(document).ready(function() {
         <script src="assets/js/icheck.min.js"></script>
         <script src="assets/js/price-range.js"></script>
         <script src="assets/js/main.js"></script>
+          <!-- Footer area-->
+  <div class="footer-area">
+
+<div class=" footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                <div class="single-footer">
+                    <h4>About us </h4>
+                    <div class="footer-title-line"></div>
+
+                    <img src="assets/img/logo3.png" alt="" class="wow pulse" data-wow-delay="1s">
+                    <p>Pour contacter Citymo</p>
+                    <ul class="footer-adress">
+                        <li><i class="pe-7s-map-marker strong"> </i> 9089 rue du Succès</li>
+                        <li><i class="pe-7s-mail strong"> </i> email@Citymo.com</li>
+                        <li><i class="pe-7s-call strong"> </i> +33 633333333</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                <div class="single-footer">
+                    <h4>Quick links </h4>
+                    <div class="footer-title-line"></div>
+                    <ul class="footer-menu">
+                        <li><a href="properties.php">Properties</a>  </li> 
+                        <li><a href="index.php">Services</a>  </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
     </body>
 </html>

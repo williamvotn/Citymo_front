@@ -8,7 +8,7 @@
     }
         /* Style de la classe "property-icon" */
         .proerty-th-list .property-icon {
-        background-color: rgba(93, 138, 255, 0.2); /* Couleur de fond souhaitée */
+        background-color: #f1f1f1;
         /* Autres styles si nécessaire */
     }
   .custom-max-height {
@@ -21,7 +21,7 @@
     position:relative;
     bottom: 0;
     right: 0;
-    background-color: rgba(93, 138, 255, 0.2); /* Couleur de fond souhaitée */
+    background-color: #f1f1f1; /* Couleur de fond souhaitée */
     /* Autres styles si nécessaire */
   }
   .proerty-th-list .col-md-4 .item-entry{
@@ -101,7 +101,7 @@ if (!empty($propertiesOnPage)) {
     foreach ($propertiesOnPage as $property) {
         echo '<div class="col-sm-6 col-md-4 p0 custom-max-height">';
         echo '<div class="box-two proerty-item custom-max-height2">';
-        echo '<form action="property.php" method="post">';
+        echo '<form action="appartement.php" method="post">';
         echo '<div class="item-thumb">';
         // Afficher l'image de la colonne 'ImageURL'
         $imageURLs = explode(' ', $property['ImageURL']);
@@ -113,15 +113,15 @@ if (!empty($propertiesOnPage)) {
         
 
         echo '<div class="item-entry overflow">';
-        echo '<form action="property.php" method="post">';
+        echo '<form action="appartement.php" method="post">';
         echo '<input type="hidden" name="property" value="' . htmlspecialchars(json_encode($property)) . '">
         <h5>
-        <button type="submit" class="property-button" name="property_id" value="' . $property['ID'] . '">' . $property['ID'] . '</button></h5></form>';
+        <button type="submit" class="property-button" name="property_id" value="' . $property['Arrondissement'] . '">Appartement dans le '. $property['Arrondissement'] . '</button></h5></form>';
         echo '<div class="dot-hr"></div>';
         // Afficher la surface de la colonne 'Surface'
         echo '<span class="pull-left"><b>Surface :</b> ' . $property['Surface'] . ' m²</span>';
         // Afficher le prix de la colonne 'Prix'
-        echo '<span class="proerty-price pull-right"> $ ' . $property['Prix'] . '</span>';
+        echo '<span class="proerty-price pull-right"> € ' . $property['Prix'] . '</span>';
         // Afficher la description de la colonne 'Description'
         echo '<br><p class="maximum_height">' . $property['Description'] . '</p>';
         echo '<div class="property-icon">';
@@ -129,8 +129,6 @@ if (!empty($propertiesOnPage)) {
         echo '<img src="assets/img/icon/bed.png">(' . $property['Nombre_de_chambres'] . ')|';
         // Afficher le nombre de salles de bain de la colonne 'Nombre_de_salles_de_bain'
         echo '<img src="assets/img/icon/shawer.png">(' . $property['Nombre_de_salles_de_bain'] . ')|';
-        // Afficher le nombre de garages de la colonne 'Garage'
-        echo '<img src="assets/img/icon/cars.png">(' . $property['Garage'] . ')';
         echo '</div>';
         echo '</div>';
 

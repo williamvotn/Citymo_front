@@ -24,7 +24,7 @@ RUN apt-get install -y python3 python3-pip \
 ENV PYTHON_PATH /usr/bin/python3
 
 # Copiez le contenu de votre application
-COPY ./garo-estate-master /var/www/html/
+COPY ./Citymo /var/www/html/
 
 # Exposez le port Apache
 EXPOSE 80
