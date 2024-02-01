@@ -1,8 +1,8 @@
-# Projet Immo - Recherche Immobilière à Paris
+# Citymo - Recherche Immobilière à Paris
 
 ## Introduction
 
-Bienvenue dans le projet Immo, un outil de recherche immobilière vous permettant de trouver tous les appartements à vendre dans Paris.
+Bienvenue dans Citymo, un outil de recherche immobilière vous permettant de trouver tous les appartements à vendre dans Paris.
 
 ## Lancement du Projet
 
@@ -45,4 +45,4 @@ Si vous avez des problèmes ou des questions, n'hésitez pas à nous contacter �
 
 ---
 
-Merci d'utiliser le Projet Immo ! Nous espérons que vous trouverez votre appartement idéal à Paris.
+Merci d'utiliser Citymo ! Nous espérons que vous trouverez votre appartement idéal à Paris.
