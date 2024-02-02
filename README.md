@@ -19,11 +19,11 @@ Saisissez votre nom d'utilisateur et votre mot de passe Docker lorsque vous y ê
 2. **Pull des Containers :** Récupérez les images Docker nécessaires en exécutant les commandes suivantes :
 
 ```
-docker pull clementjosse/siteimmo:latest
+docker pull williamvotn/citymo_front:latest
 ```
 puis
 ```
-docker pull guillaume971/projet-immo:latest
+docker pull williamvotn/citymo_bdd:latest
 ```
 
 3. **Dossier Docker-Compose :** Assurez-vous d'être dans le dossier contenant le fichier `docker-compose.yml`.
