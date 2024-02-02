@@ -31,7 +31,7 @@ docker pull williamvotn/citymo_bdd:latest
 4. **Lancement de l'Application :** Démarrez l'application avec la commande :
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 L'application sera disponible à l'adresse http://localhost:8080 dans votre navigateur.
