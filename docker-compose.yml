@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    image: guillaume971/projet-immo:latest
+    image: williamvotn/citymo_front:latest
     ports:
       - "8080:80"
     networks:
@@ -11,7 +11,7 @@ services:
       - db
 
   db:
-    image: clementjosse/siteimmo:latest
+    image: williamvotn/citymo_bdd:latest
     ports:
       - "5000:3306"
     networks:
