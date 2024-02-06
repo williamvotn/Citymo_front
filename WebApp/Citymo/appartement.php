@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <ul class="main-nav nav navbar-nav navbar-right">
 
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.php">Properties</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.php">Rechercher un appartement</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
