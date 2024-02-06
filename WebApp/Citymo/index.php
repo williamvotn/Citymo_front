@@ -34,14 +34,21 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <style>
-                .footer-title-line {
-        color: #5D8AFF; /* Remplacez #5D8AFF par la couleur de votre choix */
-        background: #5D8AFF;
-    }
-    .footer-menu li {
-    border-bottom: 1px solid #5D8AFF;
-}
-    </style>
+            .footer-title-line {
+                color: #5D8AFF; /* Remplacez #5D8AFF par la couleur de votre choix */
+                background: #5D8AFF;
+            }
+            .footer-menu li {
+                border-bottom: 1px solid #5D8AFF;
+            }
+            .slider-content h2 {
+                font-size: 40px; 
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                color: #ffffff;
+                font-weight: 570;
+            } 
+        </style>
     </head>  
     <body>
 
