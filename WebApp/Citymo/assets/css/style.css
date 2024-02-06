@@ -1023,10 +1023,11 @@ label small{
     width: 100%;
 }
 .slider-content h2 {
-    font-size: 40px; 
+    font-size: 50px; 
     margin-bottom: 20px;
-    text-transform: uppercase;color: #5D8AFF;
-font-weight: 500;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: 750;
 }
 .slider-content p {
     font-size: 14px;
