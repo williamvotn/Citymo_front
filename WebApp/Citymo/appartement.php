@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                    <h1 class="page-title">Vente appartement de <?php echo $property['Nombre_de_chambres']?> chambre(s) et de <?php echo $property['Surface']?> m²</h1>              
+                    <h1 class="page-title">Vente appartement de <?php echo $property['Nombre_de_pieces']?> pièce(s) et de <?php echo $property['Surface']?> m²</h1>              
                     </div>
                 </div>
             </div>
