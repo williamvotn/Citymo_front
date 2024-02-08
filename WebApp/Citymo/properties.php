@@ -13,7 +13,7 @@ $nombre_de_piece = isset($_POST['nombre_de_piece']) ? $_POST['nombre_de_piece'] 
 
 // Récupérer les valeurs postées
 $prixRange = isset($_POST['prix']) ? $_POST['prix'] : '0,20000000';
-$surfaceRange = isset($_POST['surface']) ? $_POST['surface'] : '0,600';
+$surfaceRange = isset($_POST['surface']) ? $_POST['surface'] : '0,1000';
 
 // Diviser les chaînes en tableaux
 $prixArray = explode(',', $prixRange);
@@ -22,8 +22,8 @@ $surfaceArray = explode(',', $surfaceRange);
 $prixMin = isset($prixArray[0]) ? $prixArray[0] : 0;
 $prixMax = isset($prixArray[1]) ? $prixArray[1] : 20000000;
 
-$surfaceMin = $surfaceArray[0];
-$surfaceMax = $surfaceArray[1];
+$surfaceMin = isset($surfaceArray[0]) ? $surfaceArray[0] : 0;
+$surfaceMax = isset($surfaceArray[1]) ? $surfaceArray[1] : 1000;
 // Simuler 22 résultats
 $result = [];
 
