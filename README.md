@@ -44,7 +44,7 @@ L'application sera disponible à l'adresse http://localhost:8080 dans votre navi
 
 ## Besoin d'aide ?
 
-Si vous avez des problèmes ou des questions, n'hésitez pas à nous contacter à [vothanh@et.esiea.fr].
+Si vous avez des problèmes ou des questions, n'hésitez pas à nous contacter à [william.vothanh@gmail.com].
 
 ---
 
