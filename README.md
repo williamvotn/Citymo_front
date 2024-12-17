@@ -1,6 +1,20 @@
 # Citymo - Recherche Immobilière à Paris
 ![image](https://github.com/user-attachments/assets/7b8c78ca-3f50-4a14-b6de-da2326695a14)
 
+J'ai été chef de projet d'une équipe de 5 personnes et développeur d'un site web pouvant héberger des annonces immobilières sur paris affichant les caractéristiques d'un appartement de référence (surface, prix, nombre de chambre, localisation, …) dans une page ergonomique et rapide. Le site peut recommander des appartements similaires via un système de recommandation avec pondération à un utilisateur. Les recommandations d'appartements sont basés sur une surface et une gamme de prix similaire avec au maximum 20% de différence, les appartements sont situés dans le même arrondissement que l'appartement de référence et possèdent un nombre de chambre égale ou supérieur.
+
+- Organisation Jira / Méthode Scrum Lite
+- Gestion d'équipe et de projet
+- Étude de marché (Concurrents, business plan, stratégie de revenus, …)
+- Maquettage Figma 
+- Data Scrapping (Id, caractéristiques, images, localisation, …)
+- Data Cleaning
+- Système de recommandation (Cosinus de similarité avec pondération)
+- Élévation 3D de la carte de paris
+- Web design (UX/UI)
+- Déploiement Docker
+- Projet Github
+
 ## Introduction
 
 Bienvenue dans Citymo, un outil de recherche immobilière vous permettant de trouver tous les appartements à vendre dans Paris.
