@@ -1,4 +1,5 @@
 # Citymo - Recherche Immobilière à Paris
+![image](https://github.com/user-attachments/assets/7b8c78ca-3f50-4a14-b6de-da2326695a14)
 
 ## Introduction
 
